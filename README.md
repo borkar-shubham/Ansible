@@ -33,4 +33,6 @@ In /etc/ansible/ directory, and create inventory.txt file, and add below details
 ```
 <host_alias> ansible_host=<host_pvt_ip> ansible_ssh_pass=password ansible_connection=ssh ansible_port=22 ansible_user=root 
 ```
-
+To mention the custom inventory configuration, include it in ansible command as follows -
+```
+$ ansible webserver1 -m ping -i inventory.txt 
