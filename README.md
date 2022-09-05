@@ -19,7 +19,7 @@ www.example2.com
 10.x.x.x
 ```
 
-----
+---
 ### Creating custom inventory file:
 a. Disable the host key checking:
 To do so, make a change in ansible configuration file which is located at -
