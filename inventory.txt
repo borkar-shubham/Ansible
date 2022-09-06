@@ -1,1 +1,17 @@
-abc
+webserver ansible_host=192.168.25.15 ansible_ssh_pass=password ansible_connection=ssh ansible_port=22 ansible_user=root
+sqlserver ansible_host=192.168.25.16 ansible_ssh_pass=password ansible_connection=ssh ansible_port=22 ansible_user=root
+
+[webservers]
+webserver
+webserver1
+webserver2
+
+[dbservers]
+dbserver
+dbserver1
+dbserver2
+
+[nfsservers]
+nfsserver
+nfsserver1
+nfsserver2

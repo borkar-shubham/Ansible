@@ -1,5 +1,28 @@
 # Ansible
-Repo for Ansible stuff..
+Topics:
+a. Ansible Galaxy
+b. Asynchronous Action
+c. Error Handling
+d. Jinja2 Templating
+e. Lookups
+f. Vaults
+g. Dynamic Inventory
+h. Custom Module
+i. Plugins
+---
+Installing Ansible on Ubuntu
+```
+$ sudo apt update
+$ sudo apt install software-properties-common -y
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible -y
+```
+Installing Ansible on CentOS
+```
+$ sudo yum install epel-release
+$ sudo yum install ansible
+```
+---
 
 ## Ansible inventory
 It may contain information such as Host IPs, DNS Name, SSH User and Pass, SSH Port service info (in case it is other than port 22).
