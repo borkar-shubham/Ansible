@@ -1,14 +1,14 @@
 # Ansible
 Topics:
-a. Ansible Galaxy
-b. Asynchronous Action
-c. Error Handling
-d. Jinja2 Templating
-e. Lookups
-f. Vaults
-g. Dynamic Inventory
-h. Custom Module
-i. Plugins
+* a. Ansible Galaxy
+* b. Asynchronous Action
+* c. Error Handling
+* d. Jinja2 Templating
+* e. Lookups
+* f. Vaults
+* g. Dynamic Inventory
+* h. Custom Module
+* i. Plugins
 ---
 Installing Ansible on Ubuntu
 ```
