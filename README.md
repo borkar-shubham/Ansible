@@ -8,7 +8,8 @@ Topics:
 * f. Vaults
 * g. Dynamic Inventory
 * h. Custom Module
-* i. Plugins
+* i. Plugins, register vars
+* j. Conditions when (and/or), Setfacts, loops, privilege escalation, tags
 ---
 Installing Ansible on Ubuntu
 ```
@@ -52,10 +53,10 @@ sudo vim /etc/ansible/ansible.cfg
 Uncomment the line: host_key_checking = False
 
 b. Create inventory file:
-In /etc/ansible/ directory, and create inventory.txt file, and add below details to it:
+In /etc/ansible/ directory, and create inventory file, and add below details to it:
 ```
-<host_alias> ansible_host=<host_pvt_ip> ansible_ssh_pass=password ansible_connection=ssh ansible_port=22 ansible_user=root 
+<host_alias> ansible_host=<host_pvt_ip> ansible_ssh_pass=<password> ansible_connection=ssh ansible_port=22 ansible_user=<user> 
 ```
 To mention the custom inventory configuration, include it in ansible command as follows -
 ```
-$ ansible webserver1 -m ping -i inventory.txt 
+$ ansible webserver1 -m ping -i inventory

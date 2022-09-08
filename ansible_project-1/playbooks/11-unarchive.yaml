@@ -1,0 +1,8 @@
+- name: example for unarchive
+  hosts: all
+  tasks:
+  - name: sample
+    unarchive:
+      src: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz"
+      dest: /opt/
+      remote_src: yes

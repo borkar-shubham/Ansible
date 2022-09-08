@@ -1,0 +1,9 @@
+- name: privilage escalation
+  hosts: all
+  become: true
+  tasks:
+  - name: install httpd
+    yum:
+      name: git
+      state: latest
+

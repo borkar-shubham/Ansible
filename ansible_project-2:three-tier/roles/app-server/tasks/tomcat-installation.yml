@@ -1,0 +1,13 @@
+- name: java installation
+  yum:
+    name: java-11
+    state: latest
+- name: downloading tomcat 9
+  get_url:
+    url: "{{ TOMCAT_URL }}"
+    dest: "/tmp/"
+- name: extract tomcat to /opt
+  unarchive:
+    src: "/tmp/{{TOMCAT_ZIP}}"
+    dest: /opt/
+    remote_src: true

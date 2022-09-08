@@ -1,0 +1,28 @@
+- name: First HTML deployment
+  hosts: web
+  tasks:
+    - name: print welcome
+      debug:
+       msg: |
+        "Hello World
+        Welcome to cloudblitz
+        This is first deployment by ansible"
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+    - name: deploy website
+      copy: 
+        src: ./index.html
+        dest: /var/www/html/index.html
+    - name: host website on 80
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regex: "^Listen 8080"
+        line: "Listen 80"
+    - name: start web service
+      service:
+        name: httpd
+        state: restarted
+        enabled: true
+

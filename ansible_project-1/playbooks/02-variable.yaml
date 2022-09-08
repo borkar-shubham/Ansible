@@ -1,0 +1,32 @@
+- name: variable examples
+  hosts: all
+  vars:
+    URL: www.google.com
+  vars_files:
+    - "../ansible.var"
+  tasks:
+
+    - name: google website
+      debug:
+        msg: "{{ URL }}"
+
+    - name: search engine
+      vars:
+        URL: "local.google.com"
+      debug:
+        msg: "{{ URL }}"
+
+    - name: my website
+      debug:
+        msg: "{{ URL }}"
+
+    - name: collect hostname
+      shell: hostname
+      register: HOST
+
+    - name: print hostname
+      debug:
+        msg: "my machine name is {{HOST.stdout}}"
+        
+
+    

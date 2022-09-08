@@ -1,0 +1,11 @@
+- name: first playbook
+  hosts: all
+  tasks:
+
+  - name: print hello world
+    debug:
+      msg: "Hello Cloudblitz"
+
+  - name: print my name
+    debug:
+      msg: "This is Cloudblitz"

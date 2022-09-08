@@ -1,0 +1,20 @@
+name: 'shubham'
+
+
+address: 'nagpur 123'
+mobile: 7298765863
+fruit: ['mango', 'apple', 'banana']
+fruits:
+  - 'mango'
+  - 'apple'
+  - 'banana'
+fees: { linux: 18000, aws: 12000, devops: 5000}
+fee:
+  linux: 18000
+  aws: 12000
+  devops: 8000
+
+listofmap: [abc: xyz, demo: practice, foo: bar]
+mapoflist: {name: [mahesh, suresh, john], alphabet: [abc, xyz, mno]}
+
+

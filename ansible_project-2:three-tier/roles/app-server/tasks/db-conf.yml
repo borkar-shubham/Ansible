@@ -1,0 +1,10 @@
+- name: uploading db connector to application library
+  get_url:
+    url: https://ansible-studentapp.s3.eu-north-1.amazonaws.com/mysql-connector.jar
+    dest: "/opt/{{TOMCAT_DIR}}/lib/"
+- name: uploading configuration template
+  template:
+    src: "context.xml.j2"
+    dest: "/opt/{{TOMCAT_DIR}}/conf/context.xml"
+  notify: 
+    - restart tomcat

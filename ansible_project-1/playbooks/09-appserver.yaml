@@ -1,0 +1,43 @@
+- name: application server
+  hosts: all
+  become: true
+  vars_files:
+    - "env"
+  tasks: 
+  - name: install JAVA
+    yum:
+      name: java-11
+      state: latest
+  - name: download tomcat 8
+    get_url:
+      url: "{{ TOMCAT_URL }}"
+      dest: "/tmp/"
+  - name: extract tomcat to /opt
+    unarchive:
+      src: "/tmp/{{TOMCAT_ZIP}}"
+      dest: /opt/
+      remote_src: true
+  - name: deploy application on tomcat
+    get_url:
+      url: "{{ STUDENTAPP_URL }}"
+      dest: "/opt/{{TOMCAT_DIR}}/webapps/"
+#  - name: start tomcat service
+#    shell: "/opt/{{TOMCAT_DIR}}/bin/catalina.sh start"  
+  - name: create daemon for tomcat
+    template:
+      src: "tomcat-init"
+      dest: /etc/init.d/tomcat
+      mode: 777
+#  - name: reload daemon 
+#    systemd:
+#      daemon_reload: yes
+#      name: tomcatd
+#      state: started
+#      enabled: true
+  - name: reload daemon
+    shell: "systemctl daemon-reload"
+  - name: start tomcat
+    service:
+      name: tomcat
+      state: started
+      enabled: true

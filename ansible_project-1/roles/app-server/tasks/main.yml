@@ -1,0 +1,48 @@
+# FOR INSTALLING TOMCAT 8
+- name: install JAVA
+  yum:
+    name: java-11
+    state: latest
+- name: download tomcat 8
+  get_url:
+    url: "{{ TOMCAT_URL }}"
+    dest: "/tmp/"
+- name: extract tomcat to /opt
+  unarchive:
+    src: "/tmp/{{TOMCAT_ZIP}}"
+    dest: /opt/
+    remote_src: true
+
+# FOR DATABASE CONFIGURATION WITH TOMCAT
+- name: upload connector library
+  get_url:
+    url: http://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
+    dest: "/opt/{{TOMCAT_DIR}}/lib/"
+- name: upload configuration template
+  template:
+    src: "context.xml.j2"
+    dest: "/opt/{{TOMCAT_DIR}}/conf/context.xml"
+  notify: 
+    - restart tomcat
+
+
+
+# DEPLOY APPLICATION
+- name: deploy application on tomcat
+  get_url:
+    url: "{{ STUDENTAPP_URL }}"
+    dest: "/opt/{{TOMCAT_DIR}}/webapps/"
+
+# FOR START TOMCAT SERVICE AS DAEMON
+- name: create daemon for tomcat
+  template:
+    src: "tomcat-init.j2"
+    dest: /etc/init.d/tomcat
+    mode: 0777
+- name: reload daemon
+  shell: "systemctl daemon-reload"
+# - name: start tomcat
+#  service:
+#    name: tomcat
+#    state: restarted
+#    enabled: true

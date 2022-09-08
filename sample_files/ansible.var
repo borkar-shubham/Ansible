@@ -1,0 +1,10 @@
+VAR1: "https://google.com"
+VAR2: "https://yahoo.com
+
+# variables priorities -
+# CLI variables
+# local variables
+# file variables
+# prompt variables
+# global variables
+# host-file variables

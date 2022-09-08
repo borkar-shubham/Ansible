@@ -1,0 +1,20 @@
+[web]
+172.31.38.104
+#172.31.38.105     URL=123.google.com
+#172.31.38.106     URL=differ.google.com   ansible_user=ec2-user  ansible_ssh_private_key_file=/opt/ohio.pem
+#172.31.38.107     URL=www.google.com      ansible_user=ubuntu    ansible_ssh_private_key_file=./id_rsa
+
+#[app]
+#172.31.38.104
+#172.31.38.105
+#172.31.38.106
+
+#[db]
+#172.31.38.104
+#172.31.38.105
+#172.31.38.106
+
+#[group1]
+# children:
+#   app
+#   db

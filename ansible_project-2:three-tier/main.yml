@@ -1,0 +1,11 @@
+- name: ansible-roles-web-tier
+  hosts: webserver
+  roles:
+    - web-server
+
+- name: ansible-roles-application-tier
+  hosts: appserver
+  roles:
+    - app-server
+
+

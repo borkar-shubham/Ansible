@@ -1,0 +1,14 @@
+---
+- name: Example for gathering facts
+  hosts: all
+  #gather_facts: false
+  tasks:
+  - name: print os name
+    debug: 
+      msg: "This is my {{ansible_distribution}} machine"
+    when: ansible_distribution == "CentOS" or ansible_os_family == "Debian"
+
+  - name: print ip
+    debug:
+      msg: "{{ ansible_default_ipv4.address }}"
+...

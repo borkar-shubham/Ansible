@@ -1,0 +1,10 @@
+- name: Ignore Error Example
+  hosts: all
+  tasks:
+    - name: check java installed 
+      shell: ps -elf | grep java | grep -v grep
+      ignore_errors: true
+    
+    - name: run java
+      debug:
+        msg: "lets run tomcat"

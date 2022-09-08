@@ -1,0 +1,24 @@
+playbooks:
+  - name: playbook name
+    hosts: all/host-grp
+    vars:
+      VAR1: "{{value}}"
+      VAR2: "{{value}}"
+    vars_files: 
+      - "./ansible.var"
+    vars_prompt:
+      - name: URL
+        prompt: "Enter the URL"
+        private: false
+        salt_size: 8
+    tasks:
+      - name: task name
+        shell: enter commands
+        when: enter conditions
+        tags:
+          - tag1
+          - tag2 
+        copy: 
+          src: ansible_server_path
+          dest: host_server_path
+        ignore_errors: true

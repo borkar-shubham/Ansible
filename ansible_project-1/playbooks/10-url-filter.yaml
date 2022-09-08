@@ -1,0 +1,19 @@
+- name: Example for filter
+  hosts: all
+  tasks:
+  - name: split URL
+    debug: 
+      msg: "{{ 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz' | urlsplit('path') }}"
+    register: PATH_URL
+  
+  - name: get basename
+    debug:
+      msg: "{{ 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz' | basename }}"
+
+  - name: split using delimeter
+    debug:
+      msg: "{{ 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz' | split('/') | last }}"
+    
+  - name: regex replace 
+    debug:
+      msg: "{{'apache-tomcat-8.5.82.tar.gz' | regex_replace('.tar.gz', '')}}"

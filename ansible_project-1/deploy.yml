@@ -1,0 +1,7 @@
+
+  - name: Ansible roles
+    hosts: all
+    roles:
+  #    - web-server
+      - app-server
+  #    - ansible-role-nginx
