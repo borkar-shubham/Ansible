@@ -1,6 +1,6 @@
 TOMCAT_URL: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz"
 TOMCAT_ZIP: "{{ TOMCAT_URL | basename }}"
-STUDENTAPP_URL: "https://ansible-studentapp.s3.eu-north-1.amazonaws.com/student.war"
+STUDENTAPP_URL: "https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war"
 TOMCAT_DIR: "{{TOMCAT_ZIP | regex_replace('.tar.gz', '')}}"
 DB_PASSWORD: !vault |
           $ANSIBLE_VAULT;1.1;AES256
