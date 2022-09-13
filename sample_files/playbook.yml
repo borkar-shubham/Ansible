@@ -21,4 +21,12 @@ playbooks:
         copy: 
           src: ansible_server_path
           dest: host_server_path
-        ignore_errors: true
+        ignore_errors: true 
+      - name: installing multiple packages
+        yum:
+          pkg: {{ item }}
+          state: present
+        with_items:
+          - httpd
+          - wget
+          - tree

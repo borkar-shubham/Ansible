@@ -1,0 +1,43 @@
+# tomcat installation
+- name: java installation
+  yum:
+    name: java-11
+    state: latest
+- name: downloading tomcat 9
+  get_url:
+    url: "{{ TOMCAT_URL }}"
+    dest: "/tmp/"
+- name: extract tomcat to /opt
+  unarchive:
+    src: "/tmp/{{TOMCAT_ZIP}}"
+    dest: /opt/
+    remote_src: true
+
+# system daemon for tomcat
+- name: creating daemon for tomcat
+  template:
+    src: "tomcat-init.j2"
+    dest: /etc/init.d/tomcat
+    mode: 0555
+- name: reloading daemon
+  shell: "systemctl daemon-reload"
+
+# DB configuration
+- name: uploading db connector to application library
+  get_url:
+    url: https://ansible-studentapp.s3.eu-north-1.amazonaws.com/mysql-connector.jar
+    dest: "/opt/{{TOMCAT_DIR}}/lib/"
+- name: uploading configuration template
+  template:
+    src: "context.xml.j2"
+    dest: "/opt/{{TOMCAT_DIR}}/conf/context.xml"
+  notify: 
+    - restart tomcat
+  
+# application deployment
+- name: deploying application on tomcat
+  get_url:
+    url: "{{ STUDENTAPP_URL }}"
+    dest: "/opt/{{TOMCAT_DIR}}/webapps/"
+  notify: 
+    - restart tomcat
