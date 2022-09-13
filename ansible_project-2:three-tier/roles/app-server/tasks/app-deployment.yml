@@ -1,4 +1,0 @@
-- name: deploying application on tomcat
-  get_url:
-    url: "{{ STUDENTAPP_URL }}"
-    dest: "/opt/{{TOMCAT_DIR}}/webapps/"

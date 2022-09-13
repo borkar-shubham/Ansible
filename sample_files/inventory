@@ -4,3 +4,5 @@ sqlserver ansible_host=192.168.25.16 ansible_ssh_pass=1234 ansible_connection=ss
 [myservers]
 webserver
 sqlserver
+
+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

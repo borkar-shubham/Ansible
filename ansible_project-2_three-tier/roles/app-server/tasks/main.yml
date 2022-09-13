@@ -3,7 +3,7 @@
   yum:
     name: java-11
     state: latest
-- name: downloading tomcat 9
+- name: downloading_tomcat
   get_url:
     url: "{{ TOMCAT_URL }}"
     dest: "/tmp/"

@@ -1,15 +1,13 @@
 ### Installing nginx webserver
 - name: nginx installation
   yum:
-   - name: epel-release
-     state: latest
-   - name: nginx1
+   - name: httpd
      state: latest
 
 - name: deploying website
   copy: 
     src: ./index.html
-    dest: /usr/share/html/index.html
+    dest: /var/www/html/index.html
 # - name: hosting website on 80
 #   lineinfile:
 #     path: /etc/httpd/conf/httpd.conf

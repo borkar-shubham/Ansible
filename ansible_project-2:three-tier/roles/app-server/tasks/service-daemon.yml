@@ -1,7 +1,0 @@
-- name: creating daemon for tomcat
-  template:
-    src: "tomcat-init.j2"
-    dest: /etc/init.d/tomcat
-    mode: 0555
-- name: reloading daemon
-  shell: "systemctl daemon-reload"
