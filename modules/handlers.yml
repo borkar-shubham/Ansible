@@ -1,0 +1,12 @@
+handlers:
+- name: restart_nginx
+  service:
+    name: nginx
+    state: restarted
+    
+ #we call these handler in other modules by mentioning its name as-
+template:
+  src: /root/index.html
+  dest: /usr/share/nginx/html
+  notify:
+    - restart_nginx
