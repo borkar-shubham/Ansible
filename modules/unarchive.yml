@@ -1,0 +1,6 @@
+- name: extracting archieved files
+  unarchive:
+    src: "/tmp/archieves/abc.tar"
+    dest: /opt/myfiles/
+    remote_src: true
+    #add remote_src  if using remote source with link
