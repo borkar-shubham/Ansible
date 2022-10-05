@@ -1,0 +1,5 @@
+service:
+  name: nginx
+  state: started
+  enabled: yes
+  tags: nginx_service
