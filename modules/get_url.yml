@@ -1,0 +1,4 @@
+- name: downloading_files
+  get_url:
+    url: https://abc.com/xyz.txt
+    dest: "/opt/myfiles/"
