@@ -21,9 +21,22 @@ tasks:
       name: java-11
       state: latest
  
-#installing packages with alpine linux
+#### installing packages with alpine linux
 tasks:
   -name: installing httpd
    apk:
     name: httpd
     state: present
+ # Update repositories and install "foo" and "bar" packages
+tasks:
+ - name:
+    apk:
+      name: foo,bar
+      update_cache: yes
+
+# Remove "foo" package
+tasks:
+ - name: uninstalling package foo 
+   apk:
+     name: foo
+     state: absent
