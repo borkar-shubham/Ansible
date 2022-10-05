@@ -1,5 +1,5 @@
 - name: using template for copying files
   template:
-    src: "source_path"
-    dest: "destination_path
+    src: "file_name/path"
+    dest: /etc/init.d/tomcat  #destination_path
     mode: 0555
