@@ -5,21 +5,21 @@
     - name: Ansible apt install nginx
       apt:
         name: nginx
-        state: present
+        state: present/installed   #used any one
  
  #uninstalling packages
    tasks:
     - name: uninstalling apacke2
       apt:
         name: apache2
-        state: absent
+        state: absent/removed  #used any one
         
 #nginx installation with yum
 tasks:
   - name: java installation
     yum:
       name: java-11
-      state: latest
+      state: latest   #used to update existing package
  
 #### installing packages with alpine linux
 tasks:
