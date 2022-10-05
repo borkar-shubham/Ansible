@@ -6,6 +6,13 @@
       apt:
         name: nginx
         state: present
+ 
+ #uninstalling packages
+   tasks:
+    - name: uninstalling apacke2
+      apt:
+        name: apache2
+        state: absent
         
 #nginx installation with yum
 tasks:
