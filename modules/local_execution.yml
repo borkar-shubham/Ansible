@@ -1,0 +1,26 @@
+# to execute the module in local ansible running machine, add following attributes to the module -
+- name: xyz
+  hosts: webservers
+  tasks:
+    - name: copy files
+      local_action: command touch test.txt
+      copy:
+         src: ./test.txt
+         dest: /tmp
+         owner: shubham
+         group: shubham
+         mode: 0644
+
+# OR we can use delegation parameter to the tasks to be run on specific host
+- name: xyz
+  hosts: webservers
+  tasks:
+    - name: copy files
+      ansible.builtin.command: /usr/bin/touch test.txt
+      delegate_to: 127.0.0.1
+      copy:
+         src: ./test.txt
+         dest: /tmp
+         owner: shubham
+         group: shubham
+         mode: 0644
